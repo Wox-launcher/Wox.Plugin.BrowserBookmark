@@ -54,7 +54,7 @@ namespace Wox.Plugin.BrowserBookmark
                 Action = (e) =>
                 {
                     context.API.HideApp();
-                    context.API.ShellRun(c.Url);
+                    System.Diagnostics.Process.Start(c.Url);
                     return true;
                 }
             }).ToList();
