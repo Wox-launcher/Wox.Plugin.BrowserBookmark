@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BinaryAnalysis.UnidecodeSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Wox.Infrastructure;
+
 
 namespace Wox.Plugin.BrowserBookmark
 {
