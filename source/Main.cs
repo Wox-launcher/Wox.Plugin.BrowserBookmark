@@ -24,7 +24,9 @@ namespace Wox.Plugin.BrowserBookmark
             cachedBookmarks.AddRange(mozBookmarks.GetBookmarks());
             // Add Chrome bookmarks
             cachedBookmarks.AddRange(chromeBookmarks.GetBookmarks());
-
+            // Add IE bookmarks
+            cachedBookmarks.AddRange(IEBookmarks.GetBookmarks());
+            
             cachedBookmarks = cachedBookmarks.Distinct().ToList();
         }
 
