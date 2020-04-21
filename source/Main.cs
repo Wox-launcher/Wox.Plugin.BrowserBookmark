@@ -16,21 +16,21 @@ namespace Wox.Plugin.BrowserBookmark
             this.context = context;
 
             // Cache all bookmarks
-            var chromeBookmarks = new ChromeBookmarks();
+            var chromiumBookmarks = new ChromiumBookmarks();
             var mozBookmarks = new FirefoxBookmarks();
 
             //TODO: Let the user select which browser's bookmarks are displayed
             // Add Firefox bookmarks
             cachedBookmarks.AddRange(mozBookmarks.GetBookmarks());
             // Add Chrome bookmarks
-            cachedBookmarks.AddRange(chromeBookmarks.GetBookmarks());
+            cachedBookmarks.AddRange(chromiumBookmarks.GetBookmarks());
 
             cachedBookmarks = cachedBookmarks.Distinct().ToList();
         }
 
         public List<Result> Query(Query query)
         {
-            string param = query.GetAllRemainingParameter().TrimStart();
+            string param = query.Search.TrimStart();
 
             // Should top results be returned? (true if no search parameters have been passed)
             var topResults = string.IsNullOrEmpty(param);

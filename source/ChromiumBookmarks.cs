@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Wox.Plugin.BrowserBookmark
 {
-    public class ChromeBookmarks
+    public class ChromiumBookmarks
     {
         private List<Bookmark> bookmarks = new List<Bookmark>();
 
@@ -73,9 +75,14 @@ namespace Wox.Plugin.BrowserBookmark
         private void LoadChromeBookmarks()
         {
             String platformPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
+            //TODO: add bookmarks routes from chromium-based browsers
+            //Chrome
             LoadChromeBookmarks(Path.Combine(platformPath, @"Google\Chrome\User Data"), "Google Chrome");
             LoadChromeBookmarks(Path.Combine(platformPath, @"Google\Chrome SxS\User Data"), "Google Chrome Canary");
             LoadChromeBookmarks(Path.Combine(platformPath, @"Chromium\User Data"), "Chromium");
+            //Microsoft Edge Chromium
+            LoadChromeBookmarks(Path.Combine(platformPath, @"Microsoft\Edge Dev\User Data"), "Microsoft Edge Chromium");
         }
 
         private String DecodeUnicode(String dataStr)
